@@ -1,32 +1,39 @@
 
 <template>
   <div id="app">
-    <Navigation v-bind:tabs="tabs"/>
+    <MainApplication />
+    
   </div>
+  
 </template>
 
 <script>
-import Navigation from "./components/Navigation";
+import MainApplication from "./components/MainApplication";
+
 
 export default {
   name: "App",
   components: {
-    Navigation
+    MainApplication,
   },
   data() {
     return {
       tabs: [
         {
-          name: 'Projects',
-          href: '#',
-          icon: 'fas fa-project-diagram'
+          name: "Github",
+          href: "#",
+          icon: "fab fa-github"
         },
         {
-          name: 'Home',
-          href: '#',
-          icon:'fas fa-home'
+          name: "Projects",
+          href: "#",
+          icon: "fas fa-project-diagram"
+        },
+        {
+          name: "Home",
+          href: "#",
+          icon: "fas fa-home"
         }
-         
       ]
     };
   }
@@ -36,12 +43,12 @@ export default {
 <style>
 @import 'https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr';
 
-*{
+* {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 #app {
-  font-family:Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
