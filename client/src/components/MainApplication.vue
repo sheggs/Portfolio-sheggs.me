@@ -8,12 +8,14 @@
 <script>
 import Navigation from "./subcomponents/Navigation";
 import AboutMe from "./subcomponents/AboutMe";
+import Skills from "./subcomponents/Skills";
 
 export default {
   name: "MainApplication",
   components: {
     AboutMe,
-    Navigation
+    Navigation,
+    Skills,
   },
   data() {
     return {

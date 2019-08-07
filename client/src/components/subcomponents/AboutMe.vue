@@ -2,7 +2,9 @@
   <div class="app">
       <div class="aboutme_wrapper">
           <div class="information">
-            <img src="https://www.w3schools.com/w3css/img_lights.jpg" alt="" class="imageplaceholder">
+            <div class="imagecontainer">
+              <img  alt="" class="imageplaceholder">
+            </div>a
             <h1>{{name}} </h1>
             <h2>{{job_role}}</h2>
             <div v-bind:key="icon.id" v-for="icon in icons"><i :class="icon.icon"> </i>{{icon.title}} : {{icon.Content}}</div>
@@ -14,14 +16,17 @@
 </template>
 
 <script>
+
 export default {
+
   name: "AboutMe",
+    components: {
+  },
   props: ["icons"],
   data() {
     return {
       name:"Mahdi Mohammed",
       job_role: "Studying Bsc Computer Science",
-      msg: "Welcome to Your Vue.js App",
      
     };
   }
@@ -43,6 +48,10 @@ h2{
       font-weight: 100;
 
 
+}
+
+.imagecontainer img{
+padding:10px 10px;
 }
 * {
   margin: 0;
@@ -69,8 +78,12 @@ h2{
 .imageplaceholder{
   width:15vw;
   height: 15vw;
-  background: red;
-  border-radius:400px;
+  overflow: hidden;
+
+  /**background-image: url('../../images/picofme.jpeg');**/
+ background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;  border-radius:15vw;
 }
 
 </style>
