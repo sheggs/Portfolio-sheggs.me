@@ -3,12 +3,12 @@
       <div class="skills">
           <h1>Skills</h1><br>
           <h3>Programming Languages</h3><br><br>
-          <div v-bind:key="skill.id" v-for="skill in skills">
-              <p class = "skill_design"><i :class="skill.icon" /> </p>
-          </div>
+          <div class = "container_skill" v-bind:key="skill.id" v-for="skill in skills">
+              <p class = "skill_design"><i :class="skill.icon" :style="skill.color"/> </p>
+          </div><br><br><br><br><br><br>
                <h3>Web Development</h3><br><br>
-          <div v-bind:key="web.id" v-for="web in web_dev">
-              <p class = "sss"><i :class="web.icon" /> </p>
+          <div class = "container_skill" v-bind:key="web.id" v-for="web in web_dev">
+              <p class = "skill_design"><i :class="web.icon"  :style="web.color" /> </p>
           </div>
       </div>
   </div>
@@ -21,7 +21,7 @@ export default {
   name: "Skills",
     components: {
   },
-  props: ["icons","skills"],
+  props: ["icons","skills","web_dev"],
   data() {
     return {
       
@@ -37,7 +37,9 @@ export default {
 .app{
     margin: 0 100px;
 }
-
+.container_skill{
+  display: inline;
+}
 .skills h1{
   text-align: left;
 }
@@ -46,6 +48,7 @@ export default {
   padding:10px;
 }
 .skill_design i{
+
   font-size:5rem;
 }
 h3{

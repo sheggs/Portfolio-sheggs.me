@@ -1,24 +1,39 @@
 <template>
   <div class="app">
       <Navigation v-bind:tabs="tabs" />
-      <AboutMe v-bind:icons="icons"/>
+      <AboutMe v-bind:icons="icons" v-bind:links="links"/>
+      <Projects_Section />
   </div>
 </template>
 
 <script>
 import Navigation from "./subcomponents/Navigation";
 import AboutMe from "./subcomponents/AboutMe";
-import Skills from "./subcomponents/Skills";
+import Projects_Section from "./subcomponents/Projects_Section";
 
 export default {
   name: "MainApplication",
   components: {
     AboutMe,
     Navigation,
-    Skills,
+    Projects_Section,
   },
   data() {
     return {
+       links: [{
+        name:'Github',
+        icon:'fab fa-github',
+        link: '#',
+        color:'color:black;'
+
+      },
+      {
+        name:'LinkedIn',
+        icon:'fab fa-linkedin',
+        link: '#',
+        color:'color:#4875B4;'
+        
+      }],
       tabs: [
         {
           name: "Github",

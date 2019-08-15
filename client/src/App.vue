@@ -46,6 +46,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
+ overflow-x: hidden;
 }
 #app {
   font-family: Helvetica, sans-serif;

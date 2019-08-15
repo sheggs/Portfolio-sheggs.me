@@ -2,8 +2,9 @@
   <div class="app">
     <div class="app_wrapper">
       <div class="wrapper_navbar" style="margin: 0 100px;">
-        <h1>sheggs.me</h1>
         <div class="navbar">
+                  <h1>sheggs.me</h1>
+
           <div class="navitem" v-bind:key="tab.id" v-for="tab in tabs">
             <a :href="tab.href"><i :class="tab.icon"> </i>{{tab.name}}</a>
           </div>
@@ -40,12 +41,16 @@ i{
 }
 .app_wrapper {
   margin: 0;
-  position: relative;
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  width:100vw;
   box-shadow: 0px 0px 1.2rem black;
 }
 .navbar {
+  background: white;
   position: relative;
-  min-height: 5vh;
+  height: 5vh;
   margin: auto;
   /*z-index: 10;*/
 }
