@@ -17,13 +17,13 @@
             <h1>Sheggs.me</h1>
           </div>
 
-          <div class="card-project-description" v-if="hidden_array[index]">
+          <div class="card-project-description" >
             <h1
-              class="description"
-              text="hi"
+              class="description js_hideshit"
+              text="hi" visible = "hidden_array[index]"
             >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo ipsum laudantium ratione, natus assumenda consectetur et iste non ducimus. Dolorem hic cupiditate nobis assumenda doloribus aut quo, fugiat repellendus voluptatibus.</h1>
           </div>
-          <button v-on:click="hide">Test</button>
+          <button v-on:click="hider(index)">Test</button>
         </div>
       </div>
     </div>
@@ -42,9 +42,12 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
-   methods:{  hide : function(index){
-    alert("index")
-    console.log("as")
+   methods:{  hider : function(index){
+    alert("TEST:"+this.hidden_array[index])
+    this.hidden_array[index] = true;
+    let desc_div = document.getElementsByClassName("card-project-description")[0]
+    desc_div.setAttribute()
+    console.log(desc_div);
   }},
 };
 </script>
@@ -52,7 +55,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import "https://use.fontawesome.com/releases/v5.7.1/css/all.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=latin-ext");
+@import "https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=latin-ext";
 .projects {
   width: 100vw;
   height: 90vh;

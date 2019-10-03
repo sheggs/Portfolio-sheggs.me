@@ -5,7 +5,7 @@
         <div class="uppercontainer">
          <h1 class = "project_title">Projects</h1>
         </div>
-              <Card v-bind:card_data="card_data" />
+              <Card class = "Card" v-bind:card_data="card_data" />
 
     </section>
   </div>
@@ -45,6 +45,9 @@ export default {
 
    /* background-image: linear-gradient(white, yellow); */
 
+}
+.Card{
+  display:flex;
 }
 .card-project-description{
   font-size: .8rem;
