@@ -1,9 +1,8 @@
 <template>
   <div class="app">
-      
     <div class="cardcontainer" v-bind:key="card.id" v-for="(card, index) in card_data">
-        {{hidden_array[index] = false}}
-        {{index}}
+      {{hidden_array[index] = false}}
+      {{index}}
       <div class="card_outline">
         <div
           class="imageContainer"
@@ -17,10 +16,11 @@
             <h1>Sheggs.me</h1>
           </div>
 
-          <div class="card-project-description" >
+          <div class="card-project-description">
             <h1
               class="description js_hideshit"
-              text="hi" visible = "hidden_array[index]"
+              text="hi"
+              visible="false"
             >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo ipsum laudantium ratione, natus assumenda consectetur et iste non ducimus. Dolorem hic cupiditate nobis assumenda doloribus aut quo, fugiat repellendus voluptatibus.</h1>
           </div>
           <button v-on:click="hider(index)">Test</button>
@@ -37,18 +37,25 @@ export default {
 
   data() {
     return {
-    hidden_array: [],
+      hidden_array: [],
       hide: false,
       msg: "Welcome to Your Vue.js App"
     };
   },
-   methods:{  hider : function(index){
-    alert("TEST:"+this.hidden_array[index])
-    this.hidden_array[index] = true;
-    let desc_div = document.getElementsByClassName("card-project-description")[0]
-    desc_div.setAttribute()
-    console.log(desc_div);
-  }},
+  methods: {
+    hider: function(index) {
+      this.hidden_array[index] = true;
+      let desc_div = document.getElementsByClassName("description")[index];
+      if (desc_div.getAttribute("visible") == "true") {
+        desc_div.setAttribute("visible", "false");
+        desc_div.style.display = "none";
+      } else {
+        desc_div.setAttribute("visible", "true");
+        desc_div.style.display = "block";
+      }
+      console.log(desc_div);
+    }
+  }
 };
 </script>
 
