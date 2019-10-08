@@ -1,19 +1,17 @@
 <template>
   <div class="app">
     <div class="cardcontainer" v-bind:key="card.id" v-for="(card, index) in card_data">
-      {{hidden_array[index] = false}}
-      {{index}}
       <div class="card_outline">
         <div
           class="imageContainer"
-          style="background-image: url('https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');"
-        ></div>
+          :style="{ 'background-image': 'url(' + card.img + ')' }">
+        </div>
         <div class="information">
           <div class="card-title">
-            <h1>Website</h1>
+            <h1>{{card.type}}</h1>
           </div>
           <div class="card-project-title">
-            <h1>Sheggs.me</h1>
+            <h1>{{card.title}}</h1>
           </div>
 
           <div class="card-project-description">
@@ -21,7 +19,7 @@
               class="description js_hideshit"
               text="hi"
               visible="false"
-            >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo ipsum laudantium ratione, natus assumenda consectetur et iste non ducimus. Dolorem hic cupiditate nobis assumenda doloribus aut quo, fugiat repellendus voluptatibus.</h1>
+            >{{card.desc}}</h1>
           </div>
           <button v-on:click="hider(index)">Test</button>
         </div>
@@ -53,7 +51,6 @@ export default {
         desc_div.setAttribute("visible", "true");
         desc_div.style.display = "block";
       }
-      console.log(desc_div);
     }
   }
 };
@@ -102,6 +99,7 @@ export default {
   -webkit-justify-content: center;
 }
 .imageContainer {
+  
   width: 100%;
   height: 30vh;
   /* width:100%;

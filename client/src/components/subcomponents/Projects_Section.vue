@@ -25,7 +25,7 @@ export default {
     return {
       hide:false,
       msg: "Welcome to Your Vue.js App",
-      card_data: [{title:'xxx', desc:'xxx', type:'xxx'},{title:'xxx', desc:'xxx', type:'xxx'},]
+      card_data: [{title:'Sheggs.me', desc:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type:'Website',img:'https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'},{title:'Other', desc:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type:'xxxxxxxxxxxxxxxxxxxxx',img:''},]
     };
   }
 };
