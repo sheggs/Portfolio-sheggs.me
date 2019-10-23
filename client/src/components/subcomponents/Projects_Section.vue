@@ -4,16 +4,21 @@
     <section id = "projects" class = "projects">
         <div class="uppercontainer">
          <h1 class = "project_title">Projects</h1>
+         <input type="text" class="project_search" placeholder="🔍Search for project names"/>
         </div>
+            HERE
               <Card class = "Card" v-bind:card_data="card_data" />
+              
+              <p v-bind:key="t.id" v-for="(t, id) in proj">{{t}}</p>
 
     </section>
   </div>
 </template>
 
 <script>
-import Card from "./Card.vue";
 
+import Card from "./Card.vue";
+import sheggsReq from '@/services/sheggs_req'
 export default {
   
   name: "Projects_Section",
@@ -25,12 +30,16 @@ export default {
     return {
       hide:false,
       msg: "Welcome to Your Vue.js App",
-      card_data: [{title:'Sheggs.me', desc:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type:'Website',img:'https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'},{title:'Other', desc:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', type:'xxxxxxxxxxxxxxxxxxxxx',img:''},]
+      proj : null
     };
+  },
+  
+  async mounted() {
+      this.proj = (await sheggsReq.getAllValues())
   }
 };
 
-
+sheggsReq.getAllValues();
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -94,6 +103,23 @@ height:30vh;
   background-repeat: no-repeat;
   background-size:cover; */
 
+}
+.project_search{
+  border: none;
+  border-radius: 10px;
+  box-shadow:  0 2px 10px 0 rgba(0,0,0,0.4);
+  min-width: 15vw;
+  height: 4.3vh;
+}
+.uppercontainer{
+  display: block;
+  width: 100vw;
+  margin:auto;
+  padding:10px 0px;
+}
+.project_title{
+  text-align: center;
+  
 }
 .information{
   min-width: 100%;

@@ -2,7 +2,6 @@
 <template>
   <div id="app">
     <MainApplication />
-    
   </div>
   
 </template>

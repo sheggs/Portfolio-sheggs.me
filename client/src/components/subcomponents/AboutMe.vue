@@ -146,7 +146,7 @@ a{
 .imageplaceholder {
   height:15vw;
   width: 15vw;
-  background-image: url("../../images/picofme.jpeg");
+  /* background-image: url("../../images/picofme.jpeg"); */
   background-size: cover;
   overflow: hidden;
   background-repeat: no-repeat;

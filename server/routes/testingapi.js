@@ -5,15 +5,15 @@ const app = express();
 const routes = require('express').Router();
 const database = require('../js/sql_connector');
 
-routes.get('/', async (req,res) =>{
-    let res2 = await database.getProjects();
-    console.log(res2);
-    console.log("_______________-")
-    console.log(await database.Query("S"))
-    res.send(res2);
+routes.get('/api', async (req,res) =>{
+    console.log("ping")
+
+    let response = (await database.getProjects());
+    res.json(response);
 })
-routes.get('/api/:data', async (req,res) =>{
+routes.get('/api/query/:data', async (req,res) =>{
     let search_data = req.params.data;
-    res.send(await database.Query(search_data))
+    jsonObject = (await database.Query(search_data))
+    res.json(jsonObject)
 })
 module.exports = routes;
