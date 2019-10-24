@@ -4,12 +4,10 @@
     <section id = "projects" class = "projects">
         <div class="uppercontainer">
          <h1 class = "project_title">Projects</h1>
-         <input type="text" class="project_search" placeholder="🔍Search for project names"/>
+         <input type="text" class="project_search sheggsSearchChange" placeholder="🔍Search for project names" @input = "sheggsSearchChange"/>
         </div>
-            HERE
-              <Card class = "Card" v-bind:card_data="card_data" />
-              
-              <p v-bind:key="t.id" v-for="(t, id) in proj">{{t}}</p>
+            
+              <Card class = "Card" v-bind:card_data="proj" />
 
     </section>
   </div>
@@ -29,17 +27,26 @@ export default {
   data() {
     return {
       hide:false,
-      msg: "Welcome to Your Vue.js App",
+      msg: "Welcome to Your Vue.js App",  
       proj : null
     };
   },
   
   async mounted() {
-      this.proj = (await sheggsReq.getAllValues())
+      this.proj = (await sheggsReq.getAllValues())["data"]
+    
+  },
+  methods: {
+     sheggsSearchChange: async function(){
+      let searchBox = document.getElementsByClassName("sheggsSearchChange")[0]
+                  this.proj = (await sheggsReq.queryValues(searchBox.value))["data"]
+
+      //alert(this.proj)
+      //alert(searchBox.value)
+    }
   }
 };
 
-sheggsReq.getAllValues();
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -82,7 +89,6 @@ sheggsReq.getAllValues();
   font-style: Regular;
 }
 .cardcontainer{
-        display: flex;
           padding: 20px 20px;
   
 color:black;

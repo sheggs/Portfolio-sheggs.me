@@ -46,6 +46,7 @@ i{
   top:0;
   width:100vw;
   box-shadow: 0px 0px 1.2rem black;
+  background:white;
 }
 .navbar {
   background: white;

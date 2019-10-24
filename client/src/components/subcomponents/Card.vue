@@ -1,17 +1,18 @@
 <template>
   <div class="app">
-    <div class="cardcontainer" v-bind:key="card.id" v-for="(card, index) in card_data">
+        <div class="cardcontainer" >
+    <div class="forLoop" v-bind:key="card.id" v-for="(card, index) in card_data">
       <div class="card_outline">
         <div
           class="imageContainer"
-          :style="{ 'background-image': 'url(' + card.img + ')' }">
+          :style="{ 'background-image': 'url(' + card['project_img'] + ')' }">
         </div>
         <div class="information">
           <div class="card-title">
-            <h1>{{card.type}}</h1>
+            <h1>{{card["project_type"]}}</h1>
           </div>
           <div class="card-project-title">
-            <h1>{{card.title}}</h1>
+            <h1>{{card["project_name"]}}</h1>
           </div>
 
           <div class="card-project-description">
@@ -19,9 +20,11 @@
               class="description js_hideshit"
               text="hi"
               visible="false"
-            >{{card.desc}}</h1>
+            >{{card["project_desc"]}}</h1>
           </div>
-          <button v-on:click="hider(index)">Test</button>
+          <button v-on:click="hider(index)">Hide Description</button>
+          <a class = "fab fa-github fa-2x fa-button-custom" :href ="card['project_githublink']"></a>
+        </div>
         </div>
       </div>
     </div>
@@ -60,6 +63,10 @@ export default {
 <style scoped>
 @import "https://use.fontawesome.com/releases/v5.7.1/css/all.css";
 @import "https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=latin-ext";
+.forLoop{
+  display:block;
+  
+}
 .projects {
   width: 100vw;
   height: 90vh;
@@ -82,22 +89,20 @@ export default {
 }
 .card-title {
   width: 100%;
-  display: flex;
   padding: 0.5vw 1vw;
   font-size: 0.8rem;
   text-align: left;
   font-family: "Roboto", sans-serif;
   font-style: Regular;
 }
-.cardcontainer {
-  display: flex;
+/*.cardcontainer {
+  grid-column: 2px;
   padding: 20px 20px;
-
   color: black;
-  display: -webkit-flex;
+  /* display: -webkit-flex;
   justify-content: center;
   -webkit-justify-content: center;
-}
+} */
 .imageContainer {
   
   width: 100%;
@@ -123,7 +128,8 @@ export default {
   top:0;
   padding:0; */
   /* height:40vh; */
-  width: 15vw;
+  padding: 1vh 0;
+  min-width: 15vw;
   background-color: white;
   /* border: 2px solid #73AD21; */
 
@@ -133,5 +139,34 @@ export default {
   /* border-bottom-left-radius: 12px;
 border-bottom-right-radius: 12px; */
   /* padding: 16px 24px 24px 24px; */
+}
+button{
+  border: none;
+  color:white;
+  background-color:red;
+  padding: .5vh 1vw;
+  border-radius: .3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+.cardcontainer{
+  display:grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding:0 20px;
+  
+}
+.forLoop{
+  padding: 20px 20px;
+}
+a{
+  text-decoration: none;
+
+}
+.fa-button-custom{
+  color:black;
+}
+.fa-button-custom:hover{
+  color:lightblue;
 }
 </style>
